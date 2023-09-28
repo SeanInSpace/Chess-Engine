@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://bslifc53ly5ia"]
+
+[sub_resource type="Theme" id="Theme_mij0s"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+offset_left = 459.0
+offset_top = 35.0
+offset_right = 559.0
+offset_bottom = 60.0
+scale = Vector2(3, 3)
+text = "Chess 2.0"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 425.0
+offset_top = 125.0
+offset_right = 725.0
+offset_bottom = 225.0
+theme = SubResource("Theme_mij0s")
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+offset_left = 425.0
+offset_top = 250.0
+offset_right = 725.0
+offset_bottom = 350.0
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 2
+offset_left = 425.0
+offset_top = 375.0
+offset_right = 725.0
+offset_bottom = 475.0
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 500.0
+offset_right = 725.0
+offset_bottom = 600.0

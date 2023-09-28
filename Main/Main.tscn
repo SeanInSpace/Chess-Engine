@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://mdggxb0c7nc4"]
+
+[ext_resource type="Script" path="res://Scripts/Engine/ChessEngine.cs" id="1_ji4js"]
+[ext_resource type="PackedScene" uid="uid://cfmnfs3vfh8ki" path="res://Main/camera_2d.tscn" id="3_5hfby"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ji4js")
+
+[node name="Camera2D" parent="." instance=ExtResource("3_5hfby")]

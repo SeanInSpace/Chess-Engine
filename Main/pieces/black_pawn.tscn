@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://g1xy22rym5pq"]
+
+[ext_resource type="Texture2D" uid="uid://hccr7uhsq3c3" path="res://Main/pieces/32x32 chess fill/Pawn (2).png" id="1_vp448"]
+
+[node name="BlackPawn" type="Sprite2D"]
+texture = ExtResource("1_vp448")
