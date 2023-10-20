@@ -1,5 +1,7 @@
 using System;
 using Godot;
+using System.Collections.Generic;
+
 
 public enum PieceType { Pawn, Rook, Knight, Bishop, Queen, King }
 public enum PieceColor { White, Black }
@@ -13,6 +15,7 @@ public abstract partial class ChessPiece : Sprite2D
 	protected ChessEngine engine;
 	private bool isFlipped;
 	protected List<IMove> allowedMoves;
+
 
 	public static ChessPiece FromFENChar(char c, Vector2 position, ChessEngine engine)
 	{
