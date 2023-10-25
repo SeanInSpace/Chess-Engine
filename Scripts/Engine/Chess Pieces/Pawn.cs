@@ -9,7 +9,7 @@ public partial class Pawn : ChessPiece
 	{
 		// Add the allowed moves
 		AddMove(new ForwardMove(1)); // Single step forward
-		AddMove(new BonusForwardMove(2)); // Double step forward if not moved yet
+		AddMove(new InitialForwardMove(2)); // Double step forward if not moved yet
 		AddMove(new HorizontalCapture()); // Capture move
 	}
 
@@ -27,8 +27,8 @@ public partial class Pawn : ChessPiece
 		return false;
 	}
 
-	public bool HasMoved()
-	{
-		return hasMoved;
-	}
+	/* 	public bool HasMoved()
+		{
+			return hasMoved;
+		} */
 }
