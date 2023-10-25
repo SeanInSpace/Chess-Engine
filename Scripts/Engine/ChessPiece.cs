@@ -2,13 +2,13 @@ using System;
 using Godot;
 using System.Collections.Generic;
 
-
 public enum PieceType { Pawn, Rook, Knight, Bishop, Queen, King }
 public enum PieceColor { White, Black }
 public enum Player { White, Black }
 
 public abstract partial class ChessPiece : Sprite2D
 {
+	// Member Variables
 	protected PieceType type;
 	protected PieceColor color;
 	protected Vector2 position;
@@ -16,70 +16,40 @@ public abstract partial class ChessPiece : Sprite2D
 	private bool isFlipped;
 	protected List<IMove> allowedMoves;
 
-
-	public static ChessPiece FromFENChar(char c, Vector2 position, ChessEngine engine)
-	{
-		allowedMoves = new List<IMove>();
-
-		PieceColor color = char.IsUpper(c) ? PieceColor.White : PieceColor.Black;
-		c = char.ToLower(c);
-
-		switch (c)
-		{
-			case 'p':
-				return new Pawn(color, position, engine);
-			case 'k':
-				return new King(color, position, engine);
-			case 'q':
-				return new Queen(color, position, engine);
-			case 'b':
-				return new Bishop(color, position, engine);
-			case 'n':
-				return new Knight(color, position, engine);
-			case 'r':
-				return new Rook(color, position, engine);
-			default:
-				return null;
-		}
-
-	}
-	public void Flip()
-	{
-		isFlipped = !isFlipped;
-		FlipV = isFlipped;
-	}
-
-	public bool HasMoved { get; private set; } = false;
-
-	// Method to call when a piece moves
-	public void MarkAsMoved()
-	{
-		HasMoved = true;
-	}
-
+	// Constructor
 	public ChessPiece(PieceType type, PieceColor color, Vector2 position, ChessEngine engine)
 	{
 		this.type = type;
 		this.color = color;
 		this.position = position;
 		this.engine = engine;
+		this.allowedMoves = new List<IMove>();
 	}
+
+	// Public Properties
+	public bool HasMoved { get; private set; } = false;
+
+	// Public Methods
 	public PieceType GetPieceType()
 	{
 		return type;
 	}
+
 	public PieceColor GetColor()
 	{
 		return color;
 	}
+
 	public Vector2 GetPosition()
 	{
 		return position;
 	}
+
 	public void UpdatePosition(Vector2 newPosition)
 	{
 		this.position = newPosition;
 	}
+
 	public abstract bool CanMoveTo(Vector2 newPosition);
 
 	public void AddMove(IMove move)
@@ -97,4 +67,39 @@ public abstract partial class ChessPiece : Sprite2D
 		allowedMoves.Clear();
 	}
 
+	public void MarkAsMoved()
+	{
+		HasMoved = true;
+	}
+
+	public void Flip()
+	{
+		isFlipped = !isFlipped;
+		FlipV = isFlipped;
+	}
+
+	// Static Methods
+	public static ChessPiece FromFENChar(char c, Vector2 position, ChessEngine engine)
+	{
+		PieceColor color = char.IsUpper(c) ? PieceColor.White : PieceColor.Black;
+		c = char.ToLower(c);
+
+		switch (c)
+		{
+			case 'p':
+				return new Pawn(color, position, engine);
+			/* case 'k':
+				return new King(color, position, engine);
+			case 'q':
+				return new Queen(color, position, engine);
+			case 'b':
+				return new Bishop(color, position, engine);
+			case 'n':
+				return new Knight(color, position, engine);
+			case 'r':
+				return new Rook(color, position, engine); */
+			default:
+				return null;
+		}
+	}
 }
