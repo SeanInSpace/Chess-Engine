@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btwesakrcxmeq"
-path="res://.godot/imported/Castle (1).png-e5a562182fe796af32e438c2322a07dc.ctex"
+uid="uid://iluhut072o03"
+path="res://.godot/imported/BlackKing.png-3b0f5ae509d2e68a5ad2e663c76be83a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/Chess Pieces/Castle (1).png"
-dest_files=["res://.godot/imported/Castle (1).png-e5a562182fe796af32e438c2322a07dc.ctex"]
+source_file="res://Assets/Pieces/ChessPieces/BlackKing.png"
+dest_files=["res://.godot/imported/BlackKing.png-3b0f5ae509d2e68a5ad2e663c76be83a.ctex"]
 
 [params]
 

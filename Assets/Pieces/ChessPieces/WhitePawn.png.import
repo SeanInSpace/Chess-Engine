@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3oqt28si0a26"
-path="res://.godot/imported/Bishop (2).png-188478d14f0028f3ca630c213468abab.ctex"
+uid="uid://bh5l30o6f20uf"
+path="res://.godot/imported/WhitePawn.png-0721bb308f4c3738b42a567bd1502e98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/Chess Pieces/Bishop (2).png"
-dest_files=["res://.godot/imported/Bishop (2).png-188478d14f0028f3ca630c213468abab.ctex"]
+source_file="res://Assets/Pieces/ChessPieces/WhitePawn.png"
+dest_files=["res://.godot/imported/WhitePawn.png-0721bb308f4c3738b42a567bd1502e98.ctex"]
 
 [params]
 

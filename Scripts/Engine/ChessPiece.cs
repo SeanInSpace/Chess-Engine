@@ -24,6 +24,7 @@ public abstract partial class ChessPiece : Sprite2D
 		this.position = position;
 		this.engine = engine;
 		this.allowedMoves = new List<IMove>();
+		this.Texture = ResourceLoader.Load<Texture2D>($"res://Assets/Pieces/ChessPieces/{color.ToString()}{type.ToString()}.png");
 	}
 
 	// Public Properties

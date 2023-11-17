@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4y1buati6s0q"
-path="res://.godot/imported/Knight (1).png-043ea965ca75ea047ffe9875bcc4dc9c.ctex"
+uid="uid://btwesakrcxmeq"
+path="res://.godot/imported/WhiteRook.png-63450ac2712d658e9e370b04bbeaf20e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Pieces/Chess Pieces/Knight (1).png"
-dest_files=["res://.godot/imported/Knight (1).png-043ea965ca75ea047ffe9875bcc4dc9c.ctex"]
+source_file="res://Assets/Pieces/ChessPieces/WhiteRook.png"
+dest_files=["res://.godot/imported/WhiteRook.png-63450ac2712d658e9e370b04bbeaf20e.ctex"]
 
 [params]
 
