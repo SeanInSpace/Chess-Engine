@@ -56,9 +56,9 @@ public partial class CameraController : Camera2D {
       dragOrigin = GetGlobalMousePosition ();
     }
 
-    if (@event is InputEventMouseMotion motionEvent && Input.IsMouseButtonPressed (MouseButton.Left)) {
+    /* if (@event is InputEventMouseMotion motionEvent && Input.IsMouseButtonPressed (MouseButton.Left)) {
       Vector2 diff = dragOrigin - GetGlobalMousePosition ();
       Position += diff;
-    }
+    } */
   }
 }
