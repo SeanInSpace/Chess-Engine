@@ -3,17 +3,35 @@ using System;
 
 public class HorizontalMove : IMove
 {
-	private int distance;
+    public HorizontalMove()
+    {
+    }
 
-	public HorizontalMove(int distance)
-	{
-		this.distance = distance;
-	}
+    public bool IsValidMove(Vector2 currentPosition, Vector2 newPosition, ChessEngine engine)
+    {
+        if (currentPosition == newPosition) return false; // The positions are the same
 
-	public bool IsValidMove(Vector2 currentPosition, Vector2 newPosition, ChessEngine engine)
-	{
-		// Implement the logic for horizontal move validation
-		// Use the distance and engine as needed
-		return true; // Placeholder
-	}
+        int currentX = (int)currentPosition.X;
+        int currentY = (int)currentPosition.Y;
+        int newX = (int)newPosition.X;
+        int newY = (int)newPosition.Y;
+
+        if (currentY != newY) return false; // Not moving horizontally
+        if (IsPieceBlockingPath(currentX, currentY, newX, engine)) return false; // There is a piece blocking the path
+
+        return true;
+    }
+
+    private static bool IsPieceBlockingPath(int currentX, int currentY, int newX, ChessEngine engine)
+    {
+        int start = Math.Min(currentX, newX) + 1;
+        int end = Math.Max(currentX, newX);
+
+        for (int i = start; i < end; i++)
+        {
+            if (engine.GetPiece(i, currentY) != null) return true;
+        }
+
+        return false;
+    }
 }

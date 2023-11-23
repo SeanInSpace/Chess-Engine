@@ -1,0 +1,444 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddco5wyo7axxf"]
+
+[ext_resource type="Script" path="res://Scripts/Engine/ChessBoard.cs" id="1_8n3ft"]
+[ext_resource type="Texture2D" uid="uid://bh5l30o6f20uf" path="res://Assets/Pieces/ChessPieces/WhitePawn.png" id="2_77noq"]
+
+[node name="_Node2D_2" type="Node2D"]
+script = ExtResource("1_8n3ft")
+
+[node name="_ColorRect_3" type="ColorRect" parent="."]
+offset_right = 34.0
+offset_bottom = 34.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_4" type="ColorRect" parent="."]
+offset_top = 34.0
+offset_right = 34.0
+offset_bottom = 68.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_5" type="ColorRect" parent="."]
+offset_top = 68.0
+offset_right = 34.0
+offset_bottom = 102.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_6" type="ColorRect" parent="."]
+offset_top = 102.0
+offset_right = 34.0
+offset_bottom = 136.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_7" type="ColorRect" parent="."]
+offset_top = 136.0
+offset_right = 34.0
+offset_bottom = 170.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_8" type="ColorRect" parent="."]
+offset_top = 170.0
+offset_right = 34.0
+offset_bottom = 204.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_9" type="ColorRect" parent="."]
+offset_top = 204.0
+offset_right = 34.0
+offset_bottom = 238.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_10" type="ColorRect" parent="."]
+offset_top = 238.0
+offset_right = 34.0
+offset_bottom = 272.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_11" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_right = 68.0
+offset_bottom = 34.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_12" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_top = 34.0
+offset_right = 68.0
+offset_bottom = 68.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_13" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_top = 68.0
+offset_right = 68.0
+offset_bottom = 102.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_14" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_top = 102.0
+offset_right = 68.0
+offset_bottom = 136.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_15" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_top = 136.0
+offset_right = 68.0
+offset_bottom = 170.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_16" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_top = 170.0
+offset_right = 68.0
+offset_bottom = 204.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_17" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_top = 204.0
+offset_right = 68.0
+offset_bottom = 238.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_18" type="ColorRect" parent="."]
+offset_left = 34.0
+offset_top = 238.0
+offset_right = 68.0
+offset_bottom = 272.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_19" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_right = 102.0
+offset_bottom = 34.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_20" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_top = 34.0
+offset_right = 102.0
+offset_bottom = 68.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_21" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 102.0
+offset_bottom = 102.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_22" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_top = 102.0
+offset_right = 102.0
+offset_bottom = 136.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_23" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_top = 136.0
+offset_right = 102.0
+offset_bottom = 170.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_24" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_top = 170.0
+offset_right = 102.0
+offset_bottom = 204.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_25" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_top = 204.0
+offset_right = 102.0
+offset_bottom = 238.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_26" type="ColorRect" parent="."]
+offset_left = 68.0
+offset_top = 238.0
+offset_right = 102.0
+offset_bottom = 272.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_27" type="ColorRect" parent="."]
+offset_left = 102.0
+offset_right = 136.0
+offset_bottom = 34.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_28" type="ColorRect" parent="."]
+offset_left = 102.0
+offset_top = 34.0
+offset_right = 136.0
+offset_bottom = 68.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_29" type="ColorRect" parent="."]
+offset_left = 102.0
+offset_top = 68.0
+offset_right = 136.0
+offset_bottom = 102.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_30" type="ColorRect" parent="."]
+offset_left = 102.0
+offset_top = 102.0
+offset_right = 136.0
+offset_bottom = 136.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_31" type="ColorRect" parent="."]
+offset_left = 102.0
+offset_top = 136.0
+offset_right = 136.0
+offset_bottom = 170.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_32" type="ColorRect" parent="."]
+offset_left = 102.0
+offset_top = 170.0
+offset_right = 136.0
+offset_bottom = 204.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_33" type="ColorRect" parent="."]
+offset_left = 102.0
+offset_top = 204.0
+offset_right = 136.0
+offset_bottom = 238.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_34" type="ColorRect" parent="."]
+offset_left = 102.0
+offset_top = 238.0
+offset_right = 136.0
+offset_bottom = 272.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_35" type="ColorRect" parent="."]
+offset_left = 136.0
+offset_right = 170.0
+offset_bottom = 34.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_36" type="ColorRect" parent="."]
+offset_left = 136.0
+offset_top = 34.0
+offset_right = 170.0
+offset_bottom = 68.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_37" type="ColorRect" parent="."]
+offset_left = 136.0
+offset_top = 68.0
+offset_right = 170.0
+offset_bottom = 102.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_38" type="ColorRect" parent="."]
+offset_left = 136.0
+offset_top = 102.0
+offset_right = 170.0
+offset_bottom = 136.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_39" type="ColorRect" parent="."]
+offset_left = 136.0
+offset_top = 136.0
+offset_right = 170.0
+offset_bottom = 170.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_40" type="ColorRect" parent="."]
+offset_left = 136.0
+offset_top = 170.0
+offset_right = 170.0
+offset_bottom = 204.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_41" type="ColorRect" parent="."]
+offset_left = 136.0
+offset_top = 204.0
+offset_right = 170.0
+offset_bottom = 238.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_42" type="ColorRect" parent="."]
+offset_left = 136.0
+offset_top = 238.0
+offset_right = 170.0
+offset_bottom = 272.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_43" type="ColorRect" parent="."]
+offset_left = 170.0
+offset_right = 204.0
+offset_bottom = 34.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_44" type="ColorRect" parent="."]
+offset_left = 170.0
+offset_top = 34.0
+offset_right = 204.0
+offset_bottom = 68.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_45" type="ColorRect" parent="."]
+offset_left = 170.0
+offset_top = 68.0
+offset_right = 204.0
+offset_bottom = 102.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_46" type="ColorRect" parent="."]
+offset_left = 170.0
+offset_top = 102.0
+offset_right = 204.0
+offset_bottom = 136.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_47" type="ColorRect" parent="."]
+offset_left = 170.0
+offset_top = 136.0
+offset_right = 204.0
+offset_bottom = 170.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_48" type="ColorRect" parent="."]
+offset_left = 170.0
+offset_top = 170.0
+offset_right = 204.0
+offset_bottom = 204.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_49" type="ColorRect" parent="."]
+offset_left = 170.0
+offset_top = 204.0
+offset_right = 204.0
+offset_bottom = 238.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_50" type="ColorRect" parent="."]
+offset_left = 170.0
+offset_top = 238.0
+offset_right = 204.0
+offset_bottom = 272.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_51" type="ColorRect" parent="."]
+offset_left = 204.0
+offset_right = 238.0
+offset_bottom = 34.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_52" type="ColorRect" parent="."]
+offset_left = 204.0
+offset_top = 34.0
+offset_right = 238.0
+offset_bottom = 68.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_53" type="ColorRect" parent="."]
+offset_left = 204.0
+offset_top = 68.0
+offset_right = 238.0
+offset_bottom = 102.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_54" type="ColorRect" parent="."]
+offset_left = 204.0
+offset_top = 102.0
+offset_right = 238.0
+offset_bottom = 136.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_55" type="ColorRect" parent="."]
+offset_left = 204.0
+offset_top = 136.0
+offset_right = 238.0
+offset_bottom = 170.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_56" type="ColorRect" parent="."]
+offset_left = 204.0
+offset_top = 170.0
+offset_right = 238.0
+offset_bottom = 204.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_57" type="ColorRect" parent="."]
+offset_left = 204.0
+offset_top = 204.0
+offset_right = 238.0
+offset_bottom = 238.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_58" type="ColorRect" parent="."]
+offset_left = 204.0
+offset_top = 238.0
+offset_right = 238.0
+offset_bottom = 272.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_59" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_right = 272.0
+offset_bottom = 34.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_60" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_top = 34.0
+offset_right = 272.0
+offset_bottom = 68.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_61" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_top = 68.0
+offset_right = 272.0
+offset_bottom = 102.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_62" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_top = 102.0
+offset_right = 272.0
+offset_bottom = 136.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_63" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_top = 136.0
+offset_right = 272.0
+offset_bottom = 170.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_64" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_top = 170.0
+offset_right = 272.0
+offset_bottom = 204.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="_ColorRect_65" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_top = 204.0
+offset_right = 272.0
+offset_bottom = 238.0
+color = Color(0.58, 0.48, 0.37, 1)
+
+[node name="_ColorRect_66" type="ColorRect" parent="."]
+offset_left = 238.0
+offset_top = 238.0
+offset_right = 272.0
+offset_bottom = 272.0
+color = Color(0.95, 0.84, 0.67, 1)
+
+[node name="WhitePawn" type="Sprite2D" parent="."]
+position = Vector2(119, 120)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_77noq")

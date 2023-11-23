@@ -11,7 +11,7 @@ public partial class ChessEngine : Node2D {
 
   private const int SquareSize = 34;
   private const int PieceOffset = 17;
-  private const float PieceScale = 0.12f;
+  private const float PieceScale = .12f;
   private const int InitialRow = 7;
 
   public ChessEngine () {
@@ -21,6 +21,7 @@ public partial class ChessEngine : Node2D {
     }
     currentPlayer = Player.White;
     startingFEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
+    //startingFEN = "pppppppp/pppppppp/pppppppp/pppppppp/1pp2pp1/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
     selectedPiecePosition = null;
   }
 
@@ -45,23 +46,34 @@ public partial class ChessEngine : Node2D {
 
   public override void _Input (InputEvent @event) {
     if (@event is InputEventMouseButton eventMouseButton && eventMouseButton.Pressed) {
-      Vector2 clickedPosition = GetGlobalMousePosition ();
+      HandleMouseClick ();
+    }
+  }
 
-      Vector2 boardPosition = (clickedPosition - this.GlobalPosition) / SquareSize;
+  private void HandleMouseClick () {
+    Vector2 clickedPosition = GetGlobalMousePosition ();
+    Vector2 boardPosition = (clickedPosition - this.GlobalPosition) / SquareSize;
+    Vector2I boardPosInt = new Vector2I ((int) boardPosition.X, (int) boardPosition.Y);
 
-      Vector2I boardPosInt = new Vector2I ((int) boardPosition.X, (int) boardPosition.Y);
+    if (selectedPiecePosition.HasValue) {
+      HandleSelectedPieceMove (boardPosInt);
+    } else {
+      HandlePieceSelection (boardPosInt);
+    }
+  }
 
-      if (selectedPiecePosition.HasValue) {
-        if (MovePiece ((int) selectedPiecePosition.Value.X, (int) selectedPiecePosition.Value.Y, boardPosInt.X, boardPosInt.Y)) {
-          SwitchPlayer ();
-        }
-        selectedPiecePosition = null;
-      } else {
-        ChessPiece clickedPiece = GetPiece (boardPosInt.X, boardPosInt.Y);
-        if (clickedPiece != null && clickedPiece.GetColor () == (currentPlayer == Player.White ? PieceColor.White : PieceColor.Black)) {
-          selectedPiecePosition = boardPosInt;
-        }
-      }
+  private void HandleSelectedPieceMove (Vector2I boardPosInt) {
+    if (MovePiece ((int) selectedPiecePosition.Value.X, (int) selectedPiecePosition.Value.Y, boardPosInt.X, boardPosInt.Y)) {
+      SwitchPlayer ();
+    }
+    selectedPiecePosition = null;
+  }
+
+  private void HandlePieceSelection (Vector2I boardPosInt) {
+    ChessPiece clickedPiece = GetPiece (boardPosInt.X, boardPosInt.Y);
+    if (clickedPiece != null && clickedPiece.GetColor () == (currentPlayer == Player.White ? PieceColor.White : PieceColor.Black)) {
+      selectedPiecePosition = boardPosInt;
+
     }
   }
 

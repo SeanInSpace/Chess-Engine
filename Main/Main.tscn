@@ -1,9 +1,31 @@
 [gd_scene load_steps=3 format=3 uid="uid://mdggxb0c7nc4"]
 
 [ext_resource type="Script" path="res://Scripts/Engine/ChessEngine.cs" id="1_ji4js"]
-[ext_resource type="PackedScene" uid="uid://cfmnfs3vfh8ki" path="res://Main/camera_2d.tscn" id="3_5hfby"]
+[ext_resource type="Script" path="res://Scripts/Engine/CameraController.cs" id="2_0hf41"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ji4js")
 
-[node name="Camera2D" parent="." instance=ExtResource("3_5hfby")]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -2)
+script = ExtResource("2_0hf41")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="GridContainer" type="GridContainer" parent="Camera2D/CanvasLayer"]
+offset_left = 1078.0
+offset_top = 28.0
+offset_right = 1122.0
+offset_bottom = 61.0
+
+[node name="CheckButton" type="CheckButton" parent="Camera2D/CanvasLayer/GridContainer"]
+layout_mode = 2
+
+[node name="CheckButton2" type="CheckButton" parent="Camera2D/CanvasLayer/GridContainer"]
+layout_mode = 2
+
+[node name="CheckButton3" type="CheckButton" parent="Camera2D/CanvasLayer/GridContainer"]
+layout_mode = 2
+
+[node name="CheckButton4" type="CheckButton" parent="Camera2D/CanvasLayer/GridContainer"]
+layout_mode = 2

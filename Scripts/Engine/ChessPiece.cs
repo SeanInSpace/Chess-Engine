@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 public enum PieceType { Pawn, Rook, Knight, Bishop, Queen, King }
@@ -46,11 +47,9 @@ public abstract partial class ChessPiece : Sprite2D {
 	}
 
 	public virtual bool CanMoveTo (Vector2 newPosition) {
-		foreach (var move in allowedMoves) {
-			if (move.IsValidMove (this.position, newPosition, engine)) {
-				MarkAsMoved ();
-				return true;
-			}
+		if (allowedMoves.Exists (move => move.IsValidMove (this.position, newPosition, engine))) {
+			MarkAsMoved ();
+			return true;
 		}
 		return false;
 	}
@@ -84,16 +83,16 @@ public abstract partial class ChessPiece : Sprite2D {
 		switch (c) {
 			case 'p':
 				return new Pawn (color, position, engine);
-				/* case 'k':
-					return new King(color, position, engine);
-				case 'q':
-					return new Queen(color, position, engine);
-				case 'b':
-					return new Bishop(color, position, engine);
-				case 'n':
-					return new Knight(color, position, engine);
-				case 'r':
-					return new Rook(color, position, engine); */
+			case 'k':
+				return new King(color, position, engine);
+			case 'q':
+				return new Queen(color, position, engine);
+			case 'b':
+				return new Bishop(color, position, engine);
+			case 'n':
+				return new Knight(color, position, engine);
+			case 'r':
+				return new Rook(color, position, engine);
 			default:
 				return null;
 		}
