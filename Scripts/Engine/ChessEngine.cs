@@ -3,6 +3,7 @@ using System.Diagnostics;
 using Godot;
 
 public partial class ChessEngine : Node2D {
+  private DebugMovePieces debugMovePieces;
   private ChessPiece[][] board;
   private Player currentPlayer;
   private string startingFEN;
@@ -62,9 +63,11 @@ public partial class ChessEngine : Node2D {
     }
   }
 
-  private void HandleSelectedPieceMove (Vector2I boardPosInt) {
-    if (MovePiece ((int) selectedPiecePosition.Value.X, (int) selectedPiecePosition.Value.Y, boardPosInt.X, boardPosInt.Y)) {
-      SwitchPlayer ();
+  private void HandleSelectedPieceMove(Vector2I boardPosInt) {
+    ChessPiece selectedPiece = GetPiece((int)selectedPiecePosition.Value.X, (int)selectedPiecePosition.Value.Y);
+    if (debugMovePieces.IsToggled || selectedPiece.CanMoveTo(new Vector2(boardPosInt.X, boardPosInt.Y))) {
+      MovePiece((int)selectedPiecePosition.Value.X, (int)selectedPiecePosition.Value.Y, boardPosInt.X, boardPosInt.Y);
+      SwitchPlayer();
     }
     selectedPiecePosition = null;
   }
@@ -77,23 +80,20 @@ public partial class ChessEngine : Node2D {
     }
   }
 
-  public bool MovePiece (int fromX, int fromY, int toX, int toY) {
-    if (!board[fromX][fromY].CanMoveTo (new Vector2 (toX, toY))) {
-      return false;
-    }
-
-    ChessPiece targetPiece = board[toX][toY];
-    if (targetPiece != null) {
-      // Remove the target piece
-      RemoveChild (targetPiece);
-      targetPiece.QueueFree (); // Free the node if not needed anymore
-    }
-    board[toX][toY] = board[fromX][fromY];
-    board[fromX][fromY] = null;
-    board[toX][toY].Position = new Vector2 (toX * SquareSize + PieceOffset, toY * SquareSize + PieceOffset);
-    board[toX][toY].UpdatePosition (new Vector2 (toX, toY));
-    selectedPiecePosition = null;
-    return true;
+  public void MovePiece(int fromX, int fromY, int toX, int toY)
+  {
+      ChessPiece selectedPiece = board[fromX][fromY];
+      ChessPiece targetPiece = board[toX][toY];
+      if (targetPiece != null && targetPiece != selectedPiece)
+      {
+          RemoveChild(targetPiece); // Remove the target piece
+          targetPiece.QueueFree(); // Free the node if not needed anymore
+      }
+      board[toX][toY] = selectedPiece;
+      board[fromX][fromY] = null;
+      board[toX][toY].Position = new Vector2(toX * SquareSize + PieceOffset, toY * SquareSize + PieceOffset);
+      board[toX][toY].UpdatePosition(new Vector2(toX, toY));
+      selectedPiecePosition = null;
   }
 
   public void CreatePieceSprites () {
@@ -126,8 +126,12 @@ public partial class ChessEngine : Node2D {
     return currentPlayer;
   }
 
-  public ChessPiece GetPiece (int x, int y) {
-    return board[x][y];
+  public ChessPiece GetPiece(int x, int y) {
+      if (x >= 0 && x < 8 && y >= 0 && y < 8) {
+          return board[x][y];
+      } else {
+          return null;
+      }
   }
 
   public void SwitchPlayer () {
@@ -140,5 +144,6 @@ public partial class ChessEngine : Node2D {
     FlipPieces ();
     CreateStartingLayout ();
     CreatePieceSprites ();
+    debugMovePieces = (DebugMovePieces)GetNode("Camera2D/CanvasLayer/GridContainer/CheckButton");
   }
 }

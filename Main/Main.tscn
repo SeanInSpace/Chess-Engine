@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://mdggxb0c7nc4"]
+[gd_scene load_steps=4 format=3 uid="uid://mdggxb0c7nc4"]
 
 [ext_resource type="Script" path="res://Scripts/Engine/ChessEngine.cs" id="1_ji4js"]
 [ext_resource type="Script" path="res://Scripts/Engine/CameraController.cs" id="2_0hf41"]
+[ext_resource type="Script" path="res://Scripts/Engine/UI Scripts/DebugMovePieces.cs" id="3_biv5v"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ji4js")
@@ -16,10 +17,11 @@ script = ExtResource("2_0hf41")
 offset_left = 1078.0
 offset_top = 28.0
 offset_right = 1122.0
-offset_bottom = 61.0
+offset_bottom = 136.0
 
 [node name="CheckButton" type="CheckButton" parent="Camera2D/CanvasLayer/GridContainer"]
 layout_mode = 2
+script = ExtResource("3_biv5v")
 
 [node name="CheckButton2" type="CheckButton" parent="Camera2D/CanvasLayer/GridContainer"]
 layout_mode = 2
@@ -29,3 +31,5 @@ layout_mode = 2
 
 [node name="CheckButton4" type="CheckButton" parent="Camera2D/CanvasLayer/GridContainer"]
 layout_mode = 2
+
+[connection signal="toggled" from="Camera2D/CanvasLayer/GridContainer/CheckButton" to="Camera2D/CanvasLayer/GridContainer/CheckButton" method="OnToggled"]
