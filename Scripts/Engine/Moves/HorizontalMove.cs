@@ -11,6 +11,8 @@ public class HorizontalMove : IMove {
         int currentY = (int) currentPosition.Y;
         int newX = (int) newPosition.X;
         int newY = (int) newPosition.Y;
+        // Check if the new location has a piece, if so return false
+        if (engine.GetPiece (newX, newY) != null) return false;
 
         if (currentY != newY) return false; // Not moving horizontally
         if (IsPieceBlockingPath (currentX, currentY, newX, engine)) return false; // There is a piece blocking the path
@@ -26,7 +28,6 @@ public class HorizontalMove : IMove {
         for (int i = start; i < end; i++) {
             if (engine.GetPiece (i, currentY) != null) return true;
         }
-
         return false;
     }
 }
