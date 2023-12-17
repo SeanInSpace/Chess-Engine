@@ -2,7 +2,10 @@ using System;
 using Godot;
 
 public class HorizontalMove : IMove {
-    public HorizontalMove () { }
+    private int distance;
+    public HorizontalMove (int distance) {
+        this.distance = distance;
+    }
 
     public bool IsValidMove (Vector2 currentPosition, Vector2 newPosition, ChessEngine engine) {
         if (currentPosition == newPosition) return false; // The positions are the same
@@ -13,6 +16,8 @@ public class HorizontalMove : IMove {
         int newY = (int) newPosition.Y;
         // Check if the new location has a piece, if so return false
         if (engine.GetPiece (newX, newY) != null) return false;
+        // Make sure the piece is not moving more than the expected distance forward
+        if (Math.Abs (newX - currentX) > distance) return false; // The piece is moving too far
 
         if (currentY != newY) return false; // Not moving horizontally
         if (IsPieceBlockingPath (currentX, currentY, newX, engine)) return false; // There is a piece blocking the path
