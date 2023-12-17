@@ -8,6 +8,6 @@ public partial class Rook : ChessPiece {
 		// Add the allowed moves
 		AddMove (new ForwardMove (1)); // Single step forward
 		AddMove (new InitialForwardMove (2)); // Double step forward if not moved yet
-		AddMove (new HorizontalMove ()); // Horizontal move
+		AddMove (new HorizontalMove (8)); // Horizontal move
 	}
 }
