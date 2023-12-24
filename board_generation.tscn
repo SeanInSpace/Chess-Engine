@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvx57bitw0tml"]
+
+[ext_resource type="Script" path="res://BoardGeneration.gd" id="1_3lt1c"]
+
+[node name="BoardGeneration" type="Node2D" node_paths=PackedStringArray("boardSprite2D", "cell_container")]
+script = ExtResource("1_3lt1c")
+boardSprite2D = NodePath("BoardSprite2D")
+cell_container = NodePath("Cell_Container")
+RegenerateCells = true
+
+[node name="BoardSprite2D" type="Sprite2D" parent="."]
+position = Vector2(125, 125)
+
+[node name="Cell_Container" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Cell_Container"]
+visible = false
+offset_left = 15.0
+offset_top = 12.0
+offset_right = 31.0
+offset_bottom = 28.0
