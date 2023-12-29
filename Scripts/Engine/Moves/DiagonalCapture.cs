@@ -1,48 +1,34 @@
 using System;
 using Godot;
 
-public class ForwardDiagonalCapture : IMove {
+public class DiagonalCapture : IMove {
   private readonly int distance;
 
-  public ForwardDiagonalCapture (int distance) {
+  public DiagonalCapture (int distance) {
     this.distance = distance;
   }
 
   public bool IsValidMove (Vector2 currentPosition, Vector2 newPosition, ChessEngine engine) {
-    if (currentPosition == newPosition) return false; // The positions are the same
-
     int currentX = (int) currentPosition.X;
     int currentY = (int) currentPosition.Y;
     int newX = (int) newPosition.X;
     int newY = (int) newPosition.Y;
-
     ChessPiece currentPiece = engine.GetPiece (currentX, currentY);
     PieceColor pieceColor = currentPiece.GetColor ();
 
     return currentPosition != newPosition &&
       IsMovingDiagonally (currentX, newX, currentY, newY) &&
       IsMovingWithinDistance (newY, currentY) &&
-      IsMovingInCorrectDirection (newY, currentY, pieceColor) &&
       !IsPieceBlockingPath (currentX, newX, currentY, newY, engine) &&
       IsValidTarget (newX, newY, pieceColor, engine);
   }
 
   private static bool IsMovingDiagonally (int currentX, int newX, int currentY, int newY) {
-    // if |x1 - x2| == |y1 - y2| then the move is diagonal
     return Math.Abs (currentX - newX) == Math.Abs (currentY - newY);
   }
 
   private bool IsMovingWithinDistance (int newY, int currentY) {
     return Math.Abs (newY - currentY) <= distance;
-  }
-
-  private bool IsMovingInCorrectDirection (int newY, int currentY, PieceColor pieceColor) {
-    int expectedYChange = pieceColor == PieceColor.White ? distance : -distance;
-    if (pieceColor == PieceColor.White) {
-      return newY - currentY >= expectedYChange;
-    } else {
-      return newY - currentY <= expectedYChange;
-    }
   }
 
   private static bool IsPieceBlockingPath (int currentX, int newX, int currentY, int newY, ChessEngine engine) {

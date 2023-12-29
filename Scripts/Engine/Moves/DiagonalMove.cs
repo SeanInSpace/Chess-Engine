@@ -1,30 +1,28 @@
 using System;
 using Godot;
 
-public class OrthogonalMove : IMove {
+public class DiagonalMove : IMove {
   private readonly int distance;
 
-  public OrthogonalMove (int distance) {
+  public DiagonalMove (int distance) {
     this.distance = distance;
   }
 
   public bool IsValidMove (Vector2 currentPosition, Vector2 newPosition, ChessEngine engine) {
-    if (currentPosition == newPosition) return false; // The positions are the same
-
     int currentX = (int) currentPosition.X;
     int currentY = (int) currentPosition.Y;
     int newX = (int) newPosition.X;
     int newY = (int) newPosition.Y;
 
     return currentPosition != newPosition &&
-      IsMovingOrthogonally (currentX, newX, currentY, newY) &&
+      IsMovingDiagonally (currentX, newX, currentY, newY) &&
       IsMovingWithinDistance (newY, currentY) &&
       !IsPieceBlockingPath (currentX, newX, currentY, newY, engine) &&
       IsValidTarget (newX, newY, engine);
   }
 
-  private static bool IsMovingOrthogonally (int currentX, int newX, int currentY, int newY) {
-    return currentX == newX || currentY == newY;
+  private static bool IsMovingDiagonally (int currentX, int newX, int currentY, int newY) {
+    return Math.Abs (currentX - newX) == Math.Abs (currentY - newY);
   }
 
   private bool IsMovingWithinDistance (int newY, int currentY) {
@@ -35,21 +33,15 @@ public class OrthogonalMove : IMove {
     int xDirection = newX > currentX ? 1 : -1;
     int yDirection = newY > currentY ? 1 : -1;
 
-    // If moving along the x-axis
-    if (currentY == newY) {
-      for (int x = currentX + xDirection; x != newX; x += xDirection) {
-        if (engine.GetPiece (x, currentY) != null) {
-          return true;
-        }
-      }
-    }
-    // If moving along the y-axis
-    else if (currentX == newX) {
-      for (int y = currentY + yDirection; y != newY; y += yDirection) {
-        if (engine.GetPiece (currentX, y) != null) {
-          return true;
-        }
-      }
+    int x = currentX + xDirection;
+    int y = currentY + yDirection;
+
+    while (x != newX && y != newY) {
+      ChessPiece piece = engine.GetPiece (x, y);
+      if (piece != null) return true;
+      GD.Print (piece);
+      x += xDirection;
+      y += yDirection;
     }
 
     return false;

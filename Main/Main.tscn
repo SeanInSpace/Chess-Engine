@@ -8,7 +8,7 @@
 script = ExtResource("1_ji4js")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(576, 324)
 script = ExtResource("2_0hf41")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]

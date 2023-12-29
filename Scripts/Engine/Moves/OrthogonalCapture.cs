@@ -1,10 +1,10 @@
 using System;
 using Godot;
 
-public class OrthogonalMove : IMove {
+public class OrthogonalCapture : IMove {
   private readonly int distance;
 
-  public OrthogonalMove (int distance) {
+  public OrthogonalCapture (int distance) {
     this.distance = distance;
   }
 
@@ -57,6 +57,6 @@ public class OrthogonalMove : IMove {
 
   private static bool IsValidTarget (int newX, int newY, ChessEngine engine) {
     ChessPiece targetPiece = engine.GetPiece (newX, newY);
-    return targetPiece == null;
+    return targetPiece != null && targetPiece.GetColor () != engine.GetPiece (newX, newY).GetColor ();
   }
 }
