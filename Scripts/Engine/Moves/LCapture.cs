@@ -14,10 +14,12 @@ public class LCapture : IMove {
     int currentY = (int) currentPosition.Y;
     int newX = (int) newPosition.X;
     int newY = (int) newPosition.Y;
+    ChessPiece currentPiece = engine.GetPiece (currentX, currentY);
+    ChessPiece targetPiece = engine.GetPiece (newX, newY);
 
     return currentPosition != newPosition &&
       IsMovingInLShape (currentX, newX, currentY, newY) &&
-      IsValidTarget (newX, newY, engine);
+      IsValidTarget (currentPiece, targetPiece);
   }
 
   private bool IsMovingInLShape (int currentX, int newX, int currentY, int newY) {
@@ -25,8 +27,7 @@ public class LCapture : IMove {
       (Math.Abs (newX - currentX) == sideways && Math.Abs (newY - currentY) == forward);
   }
 
-  private static bool IsValidTarget (int newX, int newY, ChessEngine engine) {
-    ChessPiece targetPiece = engine.GetPiece (newX, newY);
-    return targetPiece != null && targetPiece.GetColor () != engine.GetPiece (newX, newY).GetColor ();
+  private static bool IsValidTarget (ChessPiece currentPiece, ChessPiece targetPiece) {
+    return targetPiece != null && targetPiece.GetColor () != currentPiece.GetColor ();
   }
 }

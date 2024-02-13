@@ -17,29 +17,23 @@ public class ForwardMove : IMove {
 		int newX = (int) newPosition.X;
 		int newY = (int) newPosition.Y;
 
-		// Determine the piece's color
 		ChessPiece currentPiece = engine.GetPiece (currentX, currentY);
 		PieceColor pieceColor = currentPiece.GetColor ();
 
-		// Check if the piece is moving straight forward
-		if (currentX != newX) return false; // The piece is trying to move sideways
+		if (currentX != newX) return false;
 
-		// Calculate the expected Y change based on the piece's color and allowed distance
 		int expectedYChange = pieceColor == PieceColor.White ? distance : -distance;
 
-		// Make sure the piece is not moving more than the expected distance forward
-		// abs (newY - currentY) >= expectedYChange
-		if (Math.Abs (newY - currentY) > distance) return false; // The piece is moving too far
+		if (Math.Abs (newY - currentY) > distance) return false;
 
 		if (pieceColor == PieceColor.White) {
-			if (newY - currentY < expectedYChange) return false; // The piece is not moving forward
+			if (newY - currentY < expectedYChange) return false;
 		} else {
-			if (newY - currentY > expectedYChange) return false; // The piece is not moving forward
+			if (newY - currentY > expectedYChange) return false;
 		}
 
-		// Check if the destination square is unoccupied
 		ChessPiece targetPiece = engine.GetPiece (newX, newY);
-		if (targetPiece != null) return false; // The destination square is occupied
+		if (targetPiece != null) return false;
 
 		return true;
 	}

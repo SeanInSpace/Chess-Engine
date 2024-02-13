@@ -12,7 +12,7 @@ public class HorizontalCapture : IMove {
 		if (currentY != newY) return false;
 
 		// Check if the destination square has an opponent's piece
-		ChessPiece currentPiece = engine.GetPiece (currentX, (int) currentPosition.Y);
+		ChessPiece currentPiece = engine.GetPiece (currentX, currentY);
 		ChessPiece targetPiece = engine.GetPiece (newX, newY);
 
 		if (targetPiece == null || targetPiece.GetColor () == currentPiece.GetColor ()) return false;

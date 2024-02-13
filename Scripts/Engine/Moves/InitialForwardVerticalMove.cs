@@ -19,7 +19,12 @@ public class InitialForwardVerticalMove : IMove {
 			IsMovingWithinDistance (newY, currentY) &&
 			!IsPieceBlockingPath (currentX, currentY, newY, engine) &&
 			IsValidTarget (newX, newY, engine);
+
 	}
+	private static bool IsFirstMove (ChessPiece currentPiece) {
+		return currentPiece.GetMoveCount () == 0;
+	}
+
 	private static bool IsMovingForward (int currentX, int newX, int currentY, int newY) {
 		return currentX == newX && newY > currentY;
 	}

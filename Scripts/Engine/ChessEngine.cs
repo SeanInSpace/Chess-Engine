@@ -146,4 +146,16 @@ public partial class ChessEngine : Node2D {
     CreatePieceSprites ();
     debugMovePieces = (DebugMovePieces)GetNode("Camera2D/CanvasLayer/GridContainer/CheckButton");
   }
+
+  public void HighlightPiece(ChessPiece piece)
+  {
+    // Change the modulate property of the sprite to highlight the piece
+    piece.Modulate = new Color(1, 1, 1, 1); // white color
+  }
+
+  public void UnhighlightPiece(ChessPiece piece)
+  {
+    // Reset the modulate property of the sprite to unhighlight the piece
+    piece.Modulate = new Color(1, 1, 1, 0.5f); // semi-transparent white color
+  }
 }

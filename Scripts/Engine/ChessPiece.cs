@@ -15,6 +15,7 @@ public abstract partial class ChessPiece : Sprite2D {
 	protected ChessEngine engine;
 	private bool isFlipped;
 	protected List<IMove> allowedMoves;
+	protected int moveCount;
 
 	// Constructor
 	public ChessPiece (PieceType type, PieceColor color, Vector2 position, ChessEngine engine) {
@@ -22,8 +23,8 @@ public abstract partial class ChessPiece : Sprite2D {
 		this.color = color;
 		this.position = position;
 		this.engine = engine;
-		this.allowedMoves = new List<IMove> ();
-		this.Texture = ResourceLoader.Load<Texture2D> ($"res://Assets/Pieces/ChessPieces/{color.ToString()}{type.ToString()}.png");
+		allowedMoves = new List<IMove> ();
+		Texture = ResourceLoader.Load<Texture2D> ($"res://Assets/Pieces/ChessPieces/{color}{type}.png");
 	}
 
 	// Public Properties
@@ -97,4 +98,11 @@ public abstract partial class ChessPiece : Sprite2D {
 				return null;
 		}
 	}
+	public int GetMoveCount() {
+		return moveCount;
+	}
+	public void IncrementMoveCount() {
+		moveCount++;
+	}
+
 }
