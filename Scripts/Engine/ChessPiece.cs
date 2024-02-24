@@ -68,7 +68,7 @@ public abstract partial class ChessPiece : Sprite2D {
 	}
 
 	public void MarkAsMoved () {
-		HasMoved = true;
+		HasMoved = false;
 	}
 
 	public void Flip () {

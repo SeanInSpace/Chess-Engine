@@ -1,0 +1,74 @@
+pieces:
+  - type: Pawn
+    moves:
+      - type: ForwardMove
+        distance:  1
+      - type: InitialForwardVerticalMove
+        distance:  2
+      - type: ForwardDiagonalCapture
+        distance:  1
+    image: assets/images/white_pawn.png
+    imageSize:
+      width:  50
+      height:  50
+  - type: Knight
+    moves:
+      - type: LMove
+        distance:  2
+      - type: LCapture
+        distance:  2
+    image: assets/images/white_knight.png
+    imageSize:
+      width:  50
+      height:  50
+  - type: Bishop
+    moves:
+      - type: DiagonalMove
+        distance:  inf
+      - type: DiagonalCapture
+        distance: inf
+    image: assets/images/white_bishop.png
+    imageSize:
+      width:  50
+      height:  50
+  - type: Rook
+    color: white
+    moves:
+      - type: OrthogonalMove
+        distance:  inf
+      - type: OrthogonalCapture
+        distance: inf
+    image: assets/images/white_rook.png
+    imageSize:
+      width:  50
+      height:  50
+  - type: Queen
+    color: white
+    moves:
+      - type: OrthogonalMove
+        distance: inf
+      - type: OrthogonalCapture
+        distance: inf
+      - type: DiagonalMove
+        distance: inf
+      - type: DiagonalCapture
+        distance: inf
+    image: assets/images/white_queen.png
+    imageSize:
+      width:  50
+      height:  50
+  - type: King
+    color: white
+    moves:
+      - type: OrthogonalMove
+        distance:  1
+      - type: OrthogonalCapture
+        distance: 1
+      - type: DiagonalMove
+        distance: 1
+      - type: DiagonalCapture
+        distance: 1
+    image: assets/images/white_king.png
+    imageSize:
+      width:  50
+      height:  50
